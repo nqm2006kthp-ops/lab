@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ Sưu Tập Ảnh | Dự Án Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initializeGallery()">
+    <a href="#main-content" class="skip-link">Chuyển đến nội dung chính</a>
+
+    <header>
+        <h1>Kho Lưu Trữ Hình Ảnh</h1>
+        <nav aria-label="Điều hướng chính">
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gallery.html" class="active">Bộ sưu tập</a></li>
+                <li><a href="about.html">Thông tin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section>
+            <h2>Triển lãm Tương tác</h2>
+            <div id="image">
+                Di chuột hoặc Tab qua một hình ảnh bên dưới để hiển thị.
+            </div>
+
+            <div class="image-grid">
+                <img class="preview" src="https://picsum.photos/id/10/400/300" alt="Phong cảnh núi rừng hùng vĩ" onmouseover="update(this)" onmouseleave="unDo()" onfocus="update(this)" onblur="unDo()">
+                <img class="preview" src="https://picsum.photos/id/20/400/300" alt="Góc làm việc tối giản" onmouseover="update(this)" onmouseleave="unDo()" onfocus="update(this)" onblur="unDo()">
+                <img class="preview" src="https://picsum.photos/id/30/400/300" alt="Tách cà phê nóng buổi sáng" onmouseover="update(this)" onmouseleave="unDo()" onfocus="update(this)" onblur="unDo()">
+                <img class="preview" src="https://picsum.photos/id/40/400/300" alt="Mèo con đang ngủ say" onmouseover="update(this)" onmouseleave="unDo()" onfocus="update(this)" onblur="unDo()">
+                <img class="preview" src="https://picsum.photos/id/50/400/300" alt="Ánh đèn thành phố về đêm" onmouseover="update(this)" onmouseleave="unDo()" onfocus="update(this)" onblur="unDo()">
+                <img class="preview" src="https://picsum.photos/id/60/400/300" alt="Bàn tay đang gõ máy tính" onmouseover="update(this)" onmouseleave="unDo()" onfocus="update(this)" onblur="unDo()">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Thiết kế bởi [Tên của bạn]</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

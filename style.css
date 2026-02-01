@@ -1,0 +1,171 @@
+/* --- Skip to Main Content --- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: #e74c3c;
+    color: white;
+    padding: 12px;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: top 0.4s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* --- Navigation (Sử dụng Flexbox) --- */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    gap: 30px; /* Thuộc tính flex thứ 2 */
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+/* Hiệu ứng Hover hấp dẫn */
+.nav-links a:hover {
+    background-color: #34495e;
+    border-bottom: 3px solid #3498db;
+    transform: translateY(-3px);
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid #3498db;
+    font-weight: bold;
+}
+
+/* --- Grid Layout (Trang Gallery) --- */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Sử dụng cột linh hoạt */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* --- Box Model cho Hình ảnh --- */
+img {
+    width: 100%;
+    height: auto;
+    border: 8px solid #ddd; /* Border */
+    padding: 5px;           /* Padding */
+    border-radius: 10px;    /* Border-radius */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Nth-child Selector --- */
+/* Thay đổi border-radius cho các ảnh ở vị trí chẵn */
+img:nth-child(even) {
+    border-radius: 50px 0px 50px 0px;
+    border-color: #3498db;
+}
+
+/* --- General Styling --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: white;
+}
+/* (Giữ lại các phần cũ bạn đã viết...) */
+
+/* --- Tinh chỉnh cho vùng hiển thị ảnh lớn --- */
+#image {
+    width: 100%;
+    height: 350px;
+    border: 5px solid #2c3e50;
+    margin: 20px 0;
+    background-color: #ecf0f1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    transition: all 0.4s ease;
+}
+
+/* --- Hiệu ứng cho ảnh trong Grid --- */
+.preview {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* Quan trọng cho Accessibility: Hiển thị viền khi Tab tới ảnh */
+.preview:focus {
+    outline: 5px solid #e74c3c;
+    transform: scale(1.05);
+}
+
+.preview:hover {
+    opacity: 0.8;
+}
+
+/* (Các phần Grid, Body, Nav cũ của bạn vẫn giữ nguyên ở dưới...) */
+/* --- TRUY VẤN PHƯƠNG TIỆN (MEDIA QUERIES) --- */
+
+/* Truy vấn #1: Chế độ xem Máy tính bảng (Tablet View) - Kích hoạt ở 772px */
+@media screen and (min-width: 772px) {
+    /* Thay đổi grid để hiển thị 2 cột (mỗi div ~45% chiều rộng) */
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        /* Hoặc dùng: grid-template-columns: 45% 45%; justify-content: space-around; */
+    }
+
+    .image-grid .preview {
+        width: 100%; /* Đảm bảo div chiếm hết phần cột được chia */
+    }
+
+    /* Hình ảnh không quá 30% chiều cao của khung nhìn (viewport height) */
+    img {
+        max-height: 30vh;
+        object-fit: cover; /* Giữ ảnh không bị méo khi giới hạn chiều cao */
+    }
+}
+
+/* Truy vấn #2: Chế độ xem Màn hình lớn (Large Display) - Kích hoạt ở 998px */
+@media screen and (min-width: 998px) {
+    /* Thay đổi bố cục thành 3 cột (mỗi div ~30% chiều rộng) */
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Hoặc dùng: grid-template-columns: 30% 30% 30%; justify-content: space-between; */
+    }
+    
+    /* Không cần thay đổi nào khác theo yêu cầu */
+}
